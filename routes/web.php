@@ -13,10 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/laravel-welcome', function () {
     return view('welcome');
 });
 
-Route::get('/coba-route', function () {
-    return view('welcome');
+Route::get('/start_bootstrap', function () {
+    return view('sb');
+});
+
+Route::get('/', function () {
+    $shortlink_count = 1000;
+    $visitor_count = 509;
+
+    return view('landing',compact('shortlink_count','visitor_count'));
 });
