@@ -50,7 +50,9 @@ class ShortlinkController extends Controller
             'long_url' => $request->urlAddress
         ]);
 
-        return back()->with('success','Your short URL is : ' . $url->short_url);
+        $short_url = url('') .'/'. $url->short_url;
+
+        return back()->with('success','Your short URL is : ' . $short_url);
     }
 
     /*
@@ -71,6 +73,13 @@ class ShortlinkController extends Controller
                 return $short_url;
             }
         }
+    }
+
+    /* Fungsi untuk melakukan redirect pada shortlink yang diberikan  */
+    public function redirectTo($short_url){
+        $shorted_link = ShortedLink::select('long_url')->where('short_url', $short_url)->firstorFail();
+        
+        return redirect($shorted_link->long_url);
     }
 
     /**

@@ -16,13 +16,17 @@ use App\Http\Controllers\ShortlinkController;
 
 Route::resource('shortlink', ShortLinkController::class);
 
+Route::get('/{shorturl}', [ShortLinkController::class, 'redirectTo'])->name('shortlink.redirectTo');
+
 Route::get('/laravel-welcome', function () {
     return view('welcome');
 });
 
+/*
 Route::get('/start_bootstrap', function () {
     return view('sb');
 });
+*/
 
 Route::get('/', function () {
     $shortlink_count = 1000;
