@@ -1,20 +1,46 @@
 <header class="masthead">
     <div class="container position-relative">
         <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="text-center text-white">
-                    <h1 class="mb-5">Let us shorten your favourites links !!</h1>
-                    <form class="form-subscribe" id="contactForm" data-sb-form-api-token="API_TOKEN">
-                        <div class="row">
-                            <div class="col">
-                                <input class="form-control form-control-lg" id="emailAddress" type="email" placeholder="Paste your url here"  />
-                                </div>
-                            <div class="col-auto"><button class="btn btn-primary btn-lg " id="submitButton" type="submit">Get Short !!</button></div>
-                        </div>
+            
+            <div class="text-center text-white">
+                <h1 class="mb-5">Let us shorten your favourites links !!</h1>
+            </div>
+
+            <div class="col-md-12">
+                <div class = "row mb-5">    
+                    <form class="form-subscribe" action="{!! route('shortlink.store') !!}" method="post">
+                            @csrf            
+                            <div class="row">
+                                <div class="col">
+                                    <input class="form-control form-control-lg" id="urlAddress" name="urlAddress"  placeholder="Paste your url here"  />
+                                    </div>
+                                <div class="col-auto"><button class="btn btn-primary btn-lg " id="submitButton" type="submit">Get Short !!</button></div>
+                            </div>            
                     </form>
                 </div>
+                
+                <!-- Menampilkan pesan errror dari ShortlinkController  -->
+                @if ($errors->any())
+                    <div class="row">
+                        <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                        </div>
+                    </div>
+                @endif
+
+                <!-- Menampilkan pesan sukses dari ShortlinkController  -->
+                @if(Session::has('success'))
+                    <div class="alert alert-success">
+                        {{Session::get('success')}}
+                    </div>
+                @endif
+
             </div>
-        </div>
+        </div> 
     </div>
 </header>
 

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ShortlinkController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::resource('shortlink', ShortLinkController::class);
 
 Route::get('/laravel-welcome', function () {
     return view('welcome');
@@ -27,3 +30,4 @@ Route::get('/', function () {
 
     return view('landing',compact('shortlink_count','visitor_count'));
 });
+
