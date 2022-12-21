@@ -34,9 +34,14 @@
 
                 <!-- Menampilkan pesan sukses dari ShortlinkController  -->
                 @if(Session::has('success'))
-                    <div class="alert alert-success">
-                        {{Session::get('success')}}
-                    </div>
+                     
+                    <div class="col-md-12 alert alert-success">
+                        <label id="lblShortUrl">{{Session::get('success')}}</label> 
+                        <button class="btn btn-primary ms-2" id="btnCopy" onclick="copyText()">
+                        <i class="fa-solid fa-copy"></i>
+                        </button>        
+                     </div>  
+
                 @endif
 
             </div>
@@ -98,3 +103,28 @@
         </div>
     </div>
 </section>
+
+<script>
+  function copyText() {
+
+    // Get the text to be copied
+    var link = document.getElementById("lblShortUrl").innerText;
+
+    // Create a temporary element to hold the text
+    var tempInput = document.createElement("input");
+    tempInput.value = link;
+
+    // Add the element to the document and select the text
+    document.body.appendChild(tempInput);
+    tempInput.select();
+
+    // Copy the text
+    document.execCommand("copy");
+    
+    // Remove the element from the document
+    document.body.removeChild(tempInput);
+
+    alert('Shortlink Copied to Clipboard: ' + link);
+    
+  }
+</script>

@@ -8,6 +8,18 @@ use App\Models\ShortedLink;
 
 class ShortlinkController extends Controller
 {
+
+    /*
+        hitung metrics shortlink & visitor counter 
+        dan redirect to landing page
+    */
+    public function landing(){
+        $shortlink_count = ShortedLink::count();
+        $visitor_count = ShortedLink::sum('counter');
+
+        return view('landing',compact('shortlink_count','visitor_count'));
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -52,7 +64,7 @@ class ShortlinkController extends Controller
 
         $short_url = url('') .'/'. $url->short_url;
 
-        return back()->with('success','Your short URL is : ' . $short_url);
+        return back()->with('success', $short_url);
     }
 
     /*
@@ -77,8 +89,9 @@ class ShortlinkController extends Controller
 
     /* Fungsi untuk melakukan redirect pada shortlink yang diberikan  */
     public function redirectTo($short_url){
-        $shorted_link = ShortedLink::select('long_url')->where('short_url', $short_url)->firstorFail();
-        
+        $shorted_link = ShortedLink::where('short_url', $short_url)->firstorFail();;
+        $shorted_link->increment('counter');
+    
         return redirect($shorted_link->long_url);
     }
 

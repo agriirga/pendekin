@@ -16,6 +16,7 @@ use App\Http\Controllers\ShortlinkController;
 
 Route::resource('shortlink', ShortLinkController::class);
 
+Route::get('/', [ShortLinkController::class, 'landing'])->name('shortlink.landing');
 Route::get('/{shorturl}', [ShortLinkController::class, 'redirectTo'])->name('shortlink.redirectTo');
 
 Route::get('/laravel-welcome', function () {
@@ -28,6 +29,7 @@ Route::get('/start_bootstrap', function () {
 });
 */
 
+/*
 Route::get('/', function () {
     $shortlink_count = 1000;
     $visitor_count = 509;
@@ -35,3 +37,4 @@ Route::get('/', function () {
     return view('landing',compact('shortlink_count','visitor_count'));
 });
 
+*/
