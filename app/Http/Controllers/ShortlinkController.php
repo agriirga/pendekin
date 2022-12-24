@@ -50,12 +50,19 @@ class ShortlinkController extends Controller
     {
         $validated = $request->validate([
             'urlAddress' => 'required|url',
-            // 'test' => 'required'
+            'shortUrl' => 'min:3|unique:shorted_links,short_url,',
+            'g-recaptcha-response' => 'required|captcha',
         ]);
 
-        // panggil fungsi generate URL, untuk generate random string sejumlah 5 karakter       
-        $short_url = $this->generateShortUrl(5);
-
+        /*
+            Jika variabel shortUrl tidak ditentukan, 
+            maka panggil fungsi generate URL, untuk generate random string sejumlah 5 karakter       
+        */
+        if(!$request->shortUrl)
+            $short_url = $this->generateShortUrl(5);    
+        else
+            $short_url = $request->shortUrl;
+    
         /* insert DB dengan eloquent ORM dan mass assignment */
         $url = ShortedLink::create([
             'short_url' => $short_url,

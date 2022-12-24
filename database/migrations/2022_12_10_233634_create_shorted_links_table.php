@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('shorted_links', function (Blueprint $table) {
             $table->id();
             $table->string('long_url');
-            $table->string('short_url', 7);
+            $table->string('short_url', 15);
             $table->integer('counter')->default(0);
             $table->timestamp('last_visit')->nullable();
             $table->timestamps();
