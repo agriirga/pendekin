@@ -50,7 +50,7 @@ class ShortlinkController extends Controller
     {
         $validated = $request->validate([
             'urlAddress' => 'required|url',
-            'shortUrl' => 'min:3|unique:shorted_links,short_url,',
+            'shortUrl' => 'min:3|max:15|nullable|unique:shorted_links,short_url,',
             'g-recaptcha-response' => 'required|captcha',
         ]);
 
