@@ -32,14 +32,14 @@
 <section class="showcase">
     <div class="container-fluid p-0">
         <div class="row g-0">
-            <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-1.jpg')"></div>
+            <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('assets/img/remember.jpg')"></div>
             <div class="col-lg-6 order-lg-1 my-auto showcase-text">
                 <h2>Easy To Remember</h2>
                 <p class="lead mb-0">Your url are easy to Remember, with shorten url</p>
             </div>
         </div>
         <div class="row g-0">
-            <div class="col-lg-6 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-2.jpg')"></div>
+            <div class="col-lg-6 text-white showcase-img" style="background-image: url('assets/img/free.jpg')"></div>
             <div class="col-lg-6 my-auto showcase-text">
                 <h2>Forever Free</h2>
                 <p class="lead mb-0">Just put up your link, we'll make shorter for you. <b>No Fee required <b> </p>
