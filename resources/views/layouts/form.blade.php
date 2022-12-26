@@ -3,8 +3,16 @@
         <div class="row justify-content-center">
             
             <div class="text-center text-white">
+                <div class="mb-5">
+                <a href="https://trakteer.id/agri.kridanto/tip" target="_blank">
+                    <img id="wse-buttons-preview" src="https://cdn.trakteer.id/images/embed/trbtn-green-5.png" style="border:0px;height:40px;" alt="Trakteer Saya" height="40"></a>
+                </div>
+
                 <h1 class="mb-5">Let us shorten your favorite links!!</h1>
+
             </div>
+
+            
 
             <div class="col-md-12">
                 <!-- Menampilkan pesan errror dari ShortlinkController  -->
