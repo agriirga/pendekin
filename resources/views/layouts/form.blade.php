@@ -32,10 +32,19 @@
                  @if(Session::has('success'))
                      
                      <div class="col-md-12 alert alert-success">
-                         <label id="lblShortUrl">{{Session::get('success')}}</label> 
-                         <button class="btn btn-primary ms-2" id="btnCopy" onclick="copyText()">
+                        <label id="lblShortUrl">{{Session::get('success')}}</label> 
+                        <button class="btn btn-info ms-2" id="btnCopy" onclick="copyText()">
                             <i class="fa-solid fa-copy"></i>
-                         </button>        
+                        </button>     
+                        
+                        <button class="btn btn-success ms-2" id="btnWhatsapp" onclick="shareOnWhatsApp()">
+                            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                            
+                        </button>
+
+                        <button class="btn btn-primary ms-2" id="btnTelegram" onclick="shareOnTelegram()">
+                            <i class="fa-brands fa-telegram" aria-hidden="true"></i>
+                        </button>
                       </div>  
  
                  @endif

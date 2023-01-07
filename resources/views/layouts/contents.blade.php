@@ -78,4 +78,21 @@
     alert('Shortlink Copied to Clipboard: ' + link);
     
   }
+
+  function shareOnWhatsApp() {
+
+    // Get the text to be copied
+    var link = document.getElementById("lblShortUrl").innerText;
+
+    // Open a new window to the WhatsApp share URL
+    window.open("https://wa.me/?text=" + link);
+  }
+
+  function shareOnTelegram() {
+    // Get the text to be copied
+    var link = document.getElementById("lblShortUrl").innerText;
+ 
+    // Open a new window to the Telegram share URL
+    window.open("https://t.me/share/url?url=" + link  );
+  }
 </script>
